@@ -14,7 +14,8 @@ class RegistrationsController < ApplicationController
 
   # GET /registrations/new
   def new
-    @registration = Registration.new
+    @seminar = Seminar.find params[:seminar_id]
+    @registration = @seminar.registrations.create
   end
 
   # GET /registrations/1/edit
@@ -24,6 +25,7 @@ class RegistrationsController < ApplicationController
   # POST /registrations
   # POST /registrations.json
   def create
+    raise "already registrated" if Registration.find_by(registration_params)
     @registration = Registration.new(registration_params)
 
     respond_to do |format|

@@ -2,7 +2,7 @@ class Guide < ApplicationRecord
   belongs_to :member
   has_many :missions
   has_many :registrations
-  belongs_to :location
+  has_one :location, as: :locatable
   
   accepts_nested_attributes_for :location
   accepts_nested_attributes_for :member
@@ -13,5 +13,4 @@ class Guide < ApplicationRecord
   delegate :name, to: :member
   delegate :username, to: :member
   delegate :email, to: :member
-
 end

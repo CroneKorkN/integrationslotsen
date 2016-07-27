@@ -2,12 +2,3 @@ h2 Seminars
 
 ul
   = render @seminars
-    - @seminars.each do |seminar|
-      tr
-        td= seminar.seminar_type
-        td= seminar.date
-        td= link_to 'Show', seminar
-        td= link_to 'Edit', edit_seminar_path(seminar)
-        td= link_to 'Destroy', seminar, method: :delete, data:   confirm: 'Are you sure?'  
-br/
-= link_to 'New Seminar', new_seminar_path

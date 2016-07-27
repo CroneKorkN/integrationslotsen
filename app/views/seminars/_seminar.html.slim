@@ -1,3 +1,7 @@
 li 
-  = link_to seminar.seminar_type.name, seminar_path(seminar)
-  = link_to 'x', seminar_type, method: :delete, data: {confirm: 'Are you sure?'}
+  h3
+    = link_to seminar.name, seminar_path(seminar)
+    =< link_to 'x', seminar, method: :delete, data: {confirm: 'Are you sure?'}
+  = seminar.date
+  - if logged_in.guide
+    = link_to "register", new_seminar_registration_path(seminar)

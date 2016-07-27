@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       
       # login successful
       session[:member_id] = member.id
-      redirect_to root_url, notice: 'Logged in!'
+      redirect_to dashboard_url, notice: 'Logged in!'
     else
       
       # login failed

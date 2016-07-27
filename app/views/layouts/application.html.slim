@@ -9,17 +9,20 @@ html
 
   body
     header
+      h1 = link_to "Integrationslotsen", root_url
+      hr
     
     p#notice = notice
     = yield
     
     footer
+      hr
       ul
-        li
-          - if logged_in
-            = link_to "logout #{logged_in.name}", logout_url
-          - else
-            = link_to "log in", :login
-        li = link_to "become a guide", new_guide_path
+        - if logged_in
+          li = link_to "hello, #{logged_in.username}", dashboard_url
+          li = link_to "logout", logout_url
+        - else
+          li = link_to "log in", :login
+          li = link_to "become a guide", new_guide_path
         li = link_to "imprint", ""
         

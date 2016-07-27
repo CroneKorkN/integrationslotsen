@@ -1,12 +1,22 @@
 Rails.application.routes.draw do
-  resources :locations
-  resources :seminars
+  # dashboard
+  get 'dashboard/admin'
+  get 'dashboard/guide'
+
+  # seminars
   resources :seminar_types
+  resources :seminars, shallow: true do
+    resources :registrations
+  end
+  
+  # missions
   resources :mission_types
   resources :guides, shallow: true do
     resources :missions
-    resources :registrations
   end
+  get "dashboard", to: "dashboard#show", as: :dashboard
+  
+  resources :locations
   resources :languages
   resources :admins
   resources :clients

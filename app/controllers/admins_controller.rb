@@ -1,5 +1,9 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
+  
+  def dashboard
+    
+  end
 
   # GET /admins
   # GET /admins.json
@@ -69,6 +73,9 @@ class AdminsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_params
-      params.require(:admin).permit(:member_id)
+      params.require(:admin).permit( 
+        :member_id,
+        member_attributes: [:name, :username, :email, :password, :password_confirmation]
+      )
     end
 end

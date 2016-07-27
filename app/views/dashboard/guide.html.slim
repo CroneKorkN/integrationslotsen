@@ -1,0 +1,14 @@
+h2 guide dashboard
+
+h3 missions
+ul
+  = render @guide.missions
+
+h3 = link_to "seminars", seminars_path
+ul
+  = render @guide.registrations
+  
+h3 nearby clients
+ul
+  - @nearby_locations.each do |location|
+    = render location.locatable

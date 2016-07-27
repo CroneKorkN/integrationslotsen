@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727124305) do
+ActiveRecord::Schema.define(version: 20160727155032) do
 
   create_table "admins", force: :cascade do |t|
     t.integer "member_id"
@@ -20,25 +20,17 @@ ActiveRecord::Schema.define(version: 20160727124305) do
   create_table "clients", force: :cascade do |t|
     t.string   "name"
     t.integer  "language_id"
-    t.string   "location_address"
-    t.integer  "location_zipcode"
-    t.string   "location_city"
     t.datetime "birthday"
     t.datetime "date_of_arrival"
     t.datetime "registration_date"
     t.integer  "location_id"
     t.index ["birthday"], name: "index_clients_on_birthday"
     t.index ["language_id"], name: "index_clients_on_language_id"
-    t.index ["location_city"], name: "index_clients_on_location_city"
     t.index ["location_id"], name: "index_clients_on_location_id"
-    t.index ["location_zipcode"], name: "index_clients_on_location_zipcode"
-    t.index [nil], name: "index_clients_on_language"
   end
 
   create_table "guides", force: :cascade do |t|
     t.integer "member_id"
-    t.integer "location_id"
-    t.index ["location_id"], name: "index_guides_on_location_id"
     t.index ["member_id"], name: "index_guides_on_member_id"
   end
 
@@ -50,9 +42,15 @@ ActiveRecord::Schema.define(version: 20160727124305) do
     t.string   "address"
     t.integer  "zipcode"
     t.string   "town"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "geocodable_location"
+    t.string   "locatable_type"
+    t.integer  "locatable_id"
     t.index ["address"], name: "index_locations_on_address"
+    t.index ["locatable_type", "locatable_id"], name: "index_locations_on_locatable_type_and_locatable_id"
     t.index ["town"], name: "index_locations_on_town"
     t.index ["zipcode"], name: "index_locations_on_zipcode"
   end
@@ -95,6 +93,7 @@ ActiveRecord::Schema.define(version: 20160727124305) do
     t.integer "seminar_id"
     t.index ["guide_id"], name: "index_registrations_on_guide_id"
     t.index ["seminar_id"], name: "index_registrations_on_seminar_id"
+    t.index [nil, nil], name: "index_registrations_on_guide_and_seminar"
     t.index [nil], name: "index_registrations_on_guide"
     t.index [nil], name: "index_registrations_on_seminar"
   end
