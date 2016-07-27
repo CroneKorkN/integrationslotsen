@@ -11,8 +11,5 @@ class CreateMissions < ActiveRecord::Migration[5.0]
     end
     add_index :missions, :begin
     add_index :missions, :end
-    add_index :missions, :mission_type
-    add_index :missions, :guide
-    add_index :missions, :client
   end
 end
