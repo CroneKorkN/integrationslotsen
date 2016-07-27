@@ -13,6 +13,6 @@ class CreateClients < ActiveRecord::Migration[5.0]
     add_index :clients, :location_zipcode
     add_index :clients, :location_city
     add_index :clients, :birthday
-    add_index :clients, :language
+    add_index :clients, :language_id
   end
 end
