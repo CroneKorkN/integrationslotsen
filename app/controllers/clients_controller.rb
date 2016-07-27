@@ -15,6 +15,7 @@ class ClientsController < ApplicationController
   # GET /clients/new
   def new
     @client = Client.new
+    @client.build_location
   end
 
   # GET /clients/1/edit
@@ -69,6 +70,9 @@ class ClientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
-      params.require(:client).permit(:name, :language_id, :location_address, :location_zipcode, :location_city, :birthday, :date_of_arrival)
+      params.require(:client).permit(
+        :member_id, :birthday, :date_of_arrival, :language_id, :name,
+        location_attributes: [:zipcode, :address, :town]
+      )
     end
 end

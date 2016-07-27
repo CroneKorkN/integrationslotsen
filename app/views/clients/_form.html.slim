@@ -8,17 +8,17 @@
         - client.errors.full_messages.each do |message|
           li= message
   .field
-    = f.text_field :name, placeholder: "name"
+    = f.collection_select :language_id, Language.all, :id, :name
   .field
-    = f.text_field :language_id, placeholder: "language"
+    = f.text_field :name, placeholder: "name"
     
-  = f.fields_for :location do |l|
+  = f.fields_for :location, client.location do |l|
     .field
-      = l.text_field :location_address, placeholder: "address"
+      = l.text_field :zipcode, placeholder: "zipcode"
     .field
-      = l.text_field :location_zipcode, placeholder: "zip-code"
+      = l.text_field :address, placeholder: "address"
     .field
-      = l.text_field :location_city, placeholder: "city"
+      = l.text_field :town, placeholder: "town"
       
   .field
     = f.label :birthday

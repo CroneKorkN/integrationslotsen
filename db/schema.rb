@@ -39,20 +39,15 @@ ActiveRecord::Schema.define(version: 20160727155032) do
   end
 
   create_table "locations", force: :cascade do |t|
-    t.string   "address"
-    t.integer  "zipcode"
-    t.string   "town"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "geocodable_location"
-    t.string   "locatable_type"
-    t.integer  "locatable_id"
-    t.index ["address"], name: "index_locations_on_address"
+    t.string  "address"
+    t.integer "zipcode"
+    t.string  "town"
+    t.float   "latitude"
+    t.float   "longitude"
+    t.string  "geocodable_location"
+    t.string  "locatable_type"
+    t.integer "locatable_id"
     t.index ["locatable_type", "locatable_id"], name: "index_locations_on_locatable_type_and_locatable_id"
-    t.index ["town"], name: "index_locations_on_town"
-    t.index ["zipcode"], name: "index_locations_on_zipcode"
   end
 
   create_table "members", force: :cascade do |t|
@@ -83,9 +78,6 @@ ActiveRecord::Schema.define(version: 20160727155032) do
     t.index ["end"], name: "index_missions_on_end"
     t.index ["guide_id"], name: "index_missions_on_guide_id"
     t.index ["mission_type_id"], name: "index_missions_on_mission_type_id"
-    t.index [nil], name: "index_missions_on_client"
-    t.index [nil], name: "index_missions_on_guide"
-    t.index [nil], name: "index_missions_on_mission_type"
   end
 
   create_table "registrations", force: :cascade do |t|
@@ -93,8 +85,6 @@ ActiveRecord::Schema.define(version: 20160727155032) do
     t.integer "seminar_id"
     t.index ["guide_id"], name: "index_registrations_on_guide_id"
     t.index ["seminar_id"], name: "index_registrations_on_seminar_id"
-    t.index [nil], name: "index_registrations_on_guide"
-    t.index [nil], name: "index_registrations_on_seminar"
   end
 
   create_table "seminar_types", force: :cascade do |t|
@@ -106,7 +96,6 @@ ActiveRecord::Schema.define(version: 20160727155032) do
     t.datetime "date"
     t.index ["date"], name: "index_seminars_on_date"
     t.index ["seminar_type_id"], name: "index_seminars_on_seminar_type_id"
-    t.index [nil], name: "index_seminars_on_seminar_type"
   end
 
 end

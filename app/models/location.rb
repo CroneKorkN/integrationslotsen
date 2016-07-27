@@ -1,5 +1,5 @@
 class Location < ApplicationRecord
-  belongs_to :locatable, polymorphic: true
+  belongs_to :locatable, polymorphic: true, optional: true
   
   after_validation :geocode, if: :geocodable_location_changed?
   

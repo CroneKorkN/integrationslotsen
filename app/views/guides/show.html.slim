@@ -1,10 +1,19 @@
 h2 = @guide.name
 
 p
+  | name 
   = @guide.username
 p
+  | email 
   = @guide.email
-  
+p
+  | location 
+  = @guide.address
+  =< @guide.zipcode
+  =< @guide.town
+
+
+
 h3 missions
 ul
   = render @guide.missions

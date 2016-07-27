@@ -9,7 +9,7 @@
           li
             = message
           
-  = f.fields_for :member do |m|
+  = f.fields_for :member, guide.member do |m|
     .field
       = m.text_field :name, placeholder: "name"
     .field
@@ -21,7 +21,7 @@
     .field
       = m.text_field :password_confirmation, placeholder: "password confirmation"
       
-  = f.fields_for :location do |l|
+  = f.fields_for :location, guide.location do |l|
     .field
       = l.text_field :zipcode, placeholder: "zipcode"
     .field
