@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(version: 20160727155032) do
     t.integer "seminar_id"
     t.index ["guide_id"], name: "index_registrations_on_guide_id"
     t.index ["seminar_id"], name: "index_registrations_on_seminar_id"
-    t.index [nil, nil], name: "index_registrations_on_guide_and_seminar"
     t.index [nil], name: "index_registrations_on_guide"
     t.index [nil], name: "index_registrations_on_seminar"
   end

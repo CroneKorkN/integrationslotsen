@@ -88,6 +88,6 @@ Mission.create(
   guide: guide,
   client: client,
   mission_type: mission_type,
-  begin: 1.year.ago,
-  end: Time.now
+  begin: Date.today - 6.months,
+  end: Date.today + 6.months
 )

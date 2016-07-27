@@ -1,2 +1,6 @@
 li
-  h4 = client.name
+  h4
+    = link_to client.name, client
+    = " ok" if client.served?
+  | speaks 
+  = client.language.name
