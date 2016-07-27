@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  seminar_type: one
+  date: 2016-07-27 12:52:42
+
+two:
+  seminar_type: two
+  date: 2016-07-27 12:52:42

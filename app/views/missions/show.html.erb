@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mission type:</strong>
+  <%= @mission.mission_type %>
+</p>
+
+<p>
+  <strong>Guide:</strong>
+  <%= @mission.guide %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @mission.client %>
+</p>
+
+<p>
+  <strong>Begin:</strong>
+  <%= @mission.begin %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @mission.end %>
+</p>
+
+<%= link_to 'Edit', edit_mission_path(@mission) %> |
+<%= link_to 'Back', missions_path %>

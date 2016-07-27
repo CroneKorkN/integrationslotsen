@@ -1,0 +1,1 @@
+json.array! @seminar_types, partial: 'seminar_types/seminar_type', as: :seminar_type

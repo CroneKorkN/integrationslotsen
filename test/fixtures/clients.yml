@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  language: one
+  location_address: MyString
+  location_zipcode: MyString
+  location_city: MyString
+  birthday: 2016-07-27 12:48:34
+  date_of_arrival: 2016-07-27 12:48:34
+
+two:
+  name: MyString
+  language: two
+  location_address: MyString
+  location_zipcode: MyString
+  location_city: MyString
+  birthday: 2016-07-27 12:48:34
+  date_of_arrival: 2016-07-27 12:48:34

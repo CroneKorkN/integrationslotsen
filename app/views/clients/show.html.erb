@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @client.name %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @client.language %>
+</p>
+
+<p>
+  <strong>Location address:</strong>
+  <%= @client.location_address %>
+</p>
+
+<p>
+  <strong>Location zipcode:</strong>
+  <%= @client.location_zipcode %>
+</p>
+
+<p>
+  <strong>Location city:</strong>
+  <%= @client.location_city %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @client.birthday %>
+</p>
+
+<p>
+  <strong>Date of arrival:</strong>
+  <%= @client.date_of_arrival %>
+</p>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>

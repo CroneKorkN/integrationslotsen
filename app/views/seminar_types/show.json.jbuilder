@@ -1,0 +1,1 @@
+json.partial! "seminar_types/seminar_type", seminar_type: @seminar_type

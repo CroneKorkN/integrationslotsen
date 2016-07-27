@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Guide:</strong>
+  <%= @registration.guide %>
+</p>
+
+<p>
+  <strong>Seminar:</strong>
+  <%= @registration.seminar %>
+</p>
+
+<%= link_to 'Edit', edit_registration_path(@registration) %> |
+<%= link_to 'Back', registrations_path %>

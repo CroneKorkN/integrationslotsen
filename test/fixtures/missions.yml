@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mission_type: one
+  guide: one
+  client: one
+  begin: 2016-07-27 12:50:57
+  end: 2016-07-27 12:50:57
+
+two:
+  mission_type: two
+  guide: two
+  client: two
+  begin: 2016-07-27 12:50:57
+  end: 2016-07-27 12:50:57
