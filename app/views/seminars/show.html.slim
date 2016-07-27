@@ -1,14 +1,12 @@
-<p id="notice"><%= notice %></p>
+h2 = "#{@seminar.name}-seminar"
 
-<p>
-  <strong>Seminar type:</strong>
-  <%= @seminar.seminar_type %>
-</p>
+p
+  | date: 
+  = @seminar.date
 
-<p>
-  <strong>Date:</strong>
-  <%= @seminar.date %>
-</p>
-
-<%= link_to 'Edit', edit_seminar_path(@seminar) %> |
-<%= link_to 'Back', seminars_path %>
+h3 registrations
+ul
+  - @seminar.registrations.each do |registration|
+    li = link_to registration.guide.name, registration.guide
+    
+= link_to "delete", @seminar, action: :delete, data: {confirm: "orly?"}

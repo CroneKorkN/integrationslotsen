@@ -5,3 +5,6 @@ li
   = seminar.date
   - if logged_in.guide
     = link_to "register", new_seminar_registration_path(seminar)
+  br
+  | registrations:
+  = seminar.registrations.count

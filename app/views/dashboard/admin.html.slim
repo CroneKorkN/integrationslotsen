@@ -1,3 +1,9 @@
 h2 admin dashbaord
 
 = link_to "clients", clients_path
+
+h3
+  | seminars 
+  = link_to "+", new_seminar_path
+ul
+  = render @seminars

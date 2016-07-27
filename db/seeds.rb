@@ -79,6 +79,7 @@ advanced_seminar = Seminar.create(
   date: Date.tomorrow,
 )
 guide.registrations.create(seminar: basic_seminar)
+guide.registrations.create(seminar: advanced_seminar)
 
 # missions
 mission_type = MissionType.create(
