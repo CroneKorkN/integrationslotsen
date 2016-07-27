@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727105329) do
+ActiveRecord::Schema.define(version: 20160727124305) do
 
   create_table "admins", force: :cascade do |t|
     t.integer "member_id"
@@ -26,20 +26,35 @@ ActiveRecord::Schema.define(version: 20160727105329) do
     t.datetime "birthday"
     t.datetime "date_of_arrival"
     t.datetime "registration_date"
+    t.integer  "location_id"
     t.index ["birthday"], name: "index_clients_on_birthday"
     t.index ["language_id"], name: "index_clients_on_language_id"
     t.index ["location_city"], name: "index_clients_on_location_city"
+    t.index ["location_id"], name: "index_clients_on_location_id"
     t.index ["location_zipcode"], name: "index_clients_on_location_zipcode"
     t.index [nil], name: "index_clients_on_language"
   end
 
   create_table "guides", force: :cascade do |t|
     t.integer "member_id"
+    t.integer "location_id"
+    t.index ["location_id"], name: "index_guides_on_location_id"
     t.index ["member_id"], name: "index_guides_on_member_id"
   end
 
   create_table "languages", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "address"
+    t.integer  "zipcode"
+    t.string   "town"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address"], name: "index_locations_on_address"
+    t.index ["town"], name: "index_locations_on_town"
+    t.index ["zipcode"], name: "index_locations_on_zipcode"
   end
 
   create_table "members", force: :cascade do |t|

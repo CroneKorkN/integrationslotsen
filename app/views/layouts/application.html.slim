@@ -1,14 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Integrationslotsen</title>
-    <%= csrf_meta_tags %>
+doctype html
+html
+  head
+    title Integrationslotsen
+    = csrf_meta_tags
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+  body
+    header
+    
+    p#notice = notice
+    = yield
+    
+    footer
+      ul
+        li
+          - if logged_in
+            = link_to "logout #{logged_in.name}", logout_url
+          - else
+            = link_to "log in", :login
+        li = link_to "become a guide", new_guide_path
+        li = link_to "imprint", ""
+        

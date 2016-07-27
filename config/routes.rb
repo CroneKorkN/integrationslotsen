@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :locations
   resources :seminars
   resources :seminar_types
   resources :mission_types
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   resources :members
   
   resources :sessions, only: [:new, :create, :destroy]
-  get 'signup', to: 'users#new', as: 'signup'
+  get 'signup', to: 'guides#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   

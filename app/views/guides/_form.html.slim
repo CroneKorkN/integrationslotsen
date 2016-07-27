@@ -1,22 +1,33 @@
-<%= form_for(guide) do |f| %>
-  <% if guide.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(guide.errors.count, "error") %> prohibited this guide from being saved:</h2>
+= form_for(guide) do |f|
+  - if guide.errors.any?
+    #error_explanation
+      h2
+        = pluralize(guide.errors.count, "error")
+        | prohibited this guide from being saved:
+      ul
+        - guide.errors.full_messages.each do |message|
+          li
+            = message
+          
+  = f.fields_for :member do |m|
+    .field
+      = m.text_field :name, placeholder: "name"
+    .field
+      = m.text_field :username, placeholder: "username"
+    .field
+      = m.text_field :email, placeholder: "email"
+    .field
+      = m.text_field :password, placeholder: "password"
+    .field
+      = m.text_field :password_confirmation, placeholder: "password confirmation"
+      
+  = f.fields_for :location do |l|
+    .field
+      = l.text_field :zipcode, placeholder: "zipcode"
+    .field
+      = l.text_field :address, placeholder: "address"
+    .field
+      = l.text_field :town, placeholder: "town"
 
-      <ul>
-      <% guide.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :member_id %>
-    <%= f.text_field :member_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  .actions
+    = f.submit

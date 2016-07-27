@@ -15,6 +15,8 @@ class GuidesController < ApplicationController
   # GET /guides/new
   def new
     @guide = Guide.new
+    @guide.build_member
+    @guide.build_location
   end
 
   # GET /guides/1/edit
@@ -69,6 +71,10 @@ class GuidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guide_params
-      params.require(:guide).permit(:member_id)
+      params.require(:guide).permit(
+        :member_id,
+        location_attributes: [:zipcode, :address, :town],
+        member_attributes: [:name, :username, :email, :password, :password_confirmation]
+        )
     end
 end
